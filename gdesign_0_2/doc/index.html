@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<head>
+<meta charset='utf-8'/>
+<title>gdesign</title>
+<link rel='stylesheet' href='lib/styles.css'/>
+</head>
+<body>
+<div id='page'>
+
+<h1>gdesign</h1>
+<div class='encart'>
+	<h2 class='titre'>Inkscape's extensions</h2>
+	<div class='panneau' id='panneau-0'>
+		<div class='text'>
+			gdesign/inkscape provides tools to make Openscad 3D objects from Inkscape paths.<br>
+		</div>
+		<h3 class='titre'>Installation</h3>
+		<div class='panneau' id='panneau-1'>
+			<div class='text'>
+				copy files:<br>
+				<ul>
+				<li>gdesign/__init__.py
+				<li>gdesign/gdesign.py
+				<li>scad-output.inx
+				<li>scad-output.py
+				<li>scad-set.inx
+				<li>scad-set.py
+				<li>scad-save.inx
+				<li>scad-save.py
+				<li>scad-restore.inx
+				<li>scad-restore.py	
+				</ul>
+				in the folder <i>Extensions</i> of Inkscape:<br>
+				Windows : "C:\Program Files\Inkscape\share\extensions"<br>
+				Linux : "/usr/share/inkscape/extensions"<br>
+				Mac : "/Applications/Inkscape.app/Contents/Resources/extensions"<br>
+			</div>
+		</div>
+		<h3 class='titre'>Save as ... Openscad file (*.scad)</h3>
+		<div class='panneau' id='panneau-2'>
+			<div class='text'>
+				<table>
+				<tr>
+				<td width =350><img src= 'src/scad-save01.png' height=205 width=346 border=0></td>
+				<td>Openscad unit : convert Inkscape coordinates to mm, cm or inches<br>
+				number of digits : round for float coordinates<br>
+				header : header of file.scad<br>
+				header of path : header of each path (polygon)<br>
+				footer of path : footer of each path<br>
+				footer : footer of file.scad<br>
+				</tr>
+				<tr>
+				<td width =350><img src= 'src/scad-save02.png' height=205 width=346 border=0></td>
+				<td>error max : maximum distance when converting Bezier curves and arcs to polylines<br>
+				error unit in mm, cm, in, pt or px</td>
+				</tr>
+				<tr>
+				<td width =350><img src= 'src/scad-save03.png' height=205 width=346 border=0></td>
+				<td>includes field defines which groups and layer will be in the scad file<br>
+				if field is empty then all gropus and layers are included<br>
+				if field is <i>layer</i> then just <i>layer</i> is included<br>
+				if field is <i>layer1 + layer2</i> then <i>layer1</i> and <i>layer2</i> are included<br>
+				if field is <i>all</i> then every layers and groups are included<br>
+				if field is <i>all - layer1</i> then every layers and groups but <i>layer1</i> are included<br>
+				<br>
+				names and operands must be separated by commas<br>
+				inkscape:label is used in layers instead of id<br>
+				</td>
+				</tr>
+				</table>	
+			</div>
+		</div>
+		<h3 class='titre'>First example</h3>
+		<div class='panneau' id='panneau-3'>
+			<div class='text'>
+				<center>
+				saved as openscad file with<br>
+				header of path : linear_extrude(10)<br>
+				</center>
+				<br>
+				<table align = center>
+				<tr>
+				<td width =264><img src= 'src/ex01-svg.png' height=260 width=260 border=0></td>
+				<td width =264><img src= 'src/ex01-scad.png' height=260 width=260 border=0></td>
+				</tr>
+				<td align=center><a href='src/ex01.svg' class='gl'>ex01.svg</a></td>
+				<td align=center><a href='src/ex01.scad' class='gl'>ex01.scad</a></td>
+				</table>
+			</div>
+		</div>
+		<h3 class='titre'>Second example</h3>
+		<div class='panneau' id='panneau-4'>
+			<div class='text'>
+				<center>
+				saved as openscad file with<br>
+				header : $fn = 100; and header of path : rotate_extrude()</br>
+				</center>
+				<table align = center>
+				<tr>
+				<td width =264><img src= 'src/ex02-svg.png' height=260 width=260 border=0></td>
+				<td width =264><img src= 'src/ex02-scad.png' height=260 width=260 border=0></td>
+				</tr>
+				<td align=center><a href='src/ex02.svg' class='gl'>ex02.svg</a></td>
+				<td align=center><a href='src/ex02.scad' class='gl'>ex02.scad</a></td>
+				</table>
+			</div>
+		</div>
+		<h3 class='titre'>Third example</h3>
+		<div class='panneau' id='panneau-5'>
+			<div class='text'>
+				For a more complex design, you can use a specific header in each path.<br>
+				For this, select the path and use Extensions/scad parameters/set<br>
+				(<i> you can also manage it with XML Editor and create/modify scad-header and scad-footer fields</i>)<br>
+				<br>
+				advantages : <br>
+				<ul>
+				<li> you can use a different command for each path
+				<li> Inkscape will save the fields in the svg file
+				<li> you can use both methods, commands in the paths will be applied first
+				</ul><br>
+				be careful : <br>
+				<ul>
+				<li> You can modify nodes after setting scad parameters but if you use binary operators like intersection, ...
+				inkscape will erase unknown extra parameters.<br>
+				To avoid loosing your work, you can save scad parameters of all paths in the file (in a temporary dir) before and
+				restore them after
+				</ul><br>
+				<table align = center>
+				<tr>
+				<td width =264><img src= 'src/ex03-svg.png' height=260 width=260 border=0></td>
+				<td width =264><img src= 'src/ex03-scad.png' height=260 width=260 border=0></td>
+				</tr>
+				<td align=center><a href='src/ex03.svg' class='gl'>ex03.svg</a></td>
+				<td align=center><a href='src/ex03.scad' class='gl'>ex03.scad</a></td>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<div class='encart'>
+	<h2 class='titre'>gdesign module</h2>
+	<div class='panneau' id='panneau-10'>
+		<div class='text'>
+			<br>
+			gdesign package manages 2D geometric objects.<br>
+			<br>
+			<center>
+			<a href='gdesign.html' class='gl'>gdesign documentation</a><br>
+			</center>
+			<br>
+		</div>
+	</div>
+</div>
+
+</div>
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'></script>
+<script src='lib/script.js'></script>
+</body>
+</html>

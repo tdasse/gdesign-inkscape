@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+    <_name>Set</_name>
+    <id>org.ekips.filter.scad-set</id>
+    <dependency type="executable" location="extensions">inkex.py</dependency>
+    <param name="header_path" type="string" _gui-text="Header of path"></param>
+    <param name="footer_path" type="string" _gui-text="Footer of path"></param>
+    <effect needs-live-preview="false">
+        <object-type>path</object-type>
+        <effects-menu>
+            <submenu _name="Scad parameters"/>
+        </effects-menu>
+    </effect>
+    <script>
+        <command reldir="extensions" interpreter="python">scad-set.py</command>
+    </script>
+</inkscape-extension>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+    <_name>to Polygon</_name>
+    <id>org.ekips.filter.gdesign-topolygon</id>
+    <dependency type="executable" location="extensions">inkex.py</dependency>
+    <dependency type="executable" location="extensions">gdesign/gdesign.py</dependency>
+    <param name="errormax" type="float" min="0.001" max="1000" precision="3" _gui-text="errormax in mm">0.1</param>
+    <effect needs-live-preview="false">
+        <object-type>paths</object-type>
+        <effects-menu>
+            <submenu _name="Gdesign"/>
+        </effects-menu>
+    </effect>
+    <script>
+        <command reldir="extensions" interpreter="python">gdesign_topolygon.py</command>
+    </script>
+</inkscape-extension>

@@ -12,21 +12,21 @@ gdesign_topolygon.inx
 
 gdesign_topolygon.py
 
-scad-output.inx
+scad_output.inx
 
-scad-output.py
+scad_output.py
 
-scad-set.inx
+scad_set.inx
 
-scad-set.py
+scad_set.py
 
-scad-save.inx
+scad_save.inx
 
-scad-save.py
+scad_save.py
 
-scad-restore.inx
+scad_restore.inx
 
-scad-restore.py 
+scad_restore.py 
 
 in the folder Extensions of Inkscape:
 

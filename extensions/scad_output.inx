@@ -2,7 +2,7 @@
 <inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
     <_name>Openscad file</_name>
     <id>org.inkscape.output.scad</id>
-    <dependency type="executable" location="extensions">scad-output.py</dependency>
+    <dependency type="executable" location="extensions">scad_output.py</dependency>
     <dependency type="executable" location="extensions">inkex.py</dependency>
     <param name="tab" type="notebook">
        <page name="openscad" _gui-text="Openscad Parameters">
@@ -39,6 +39,6 @@
         <_filetypetooltip>Openscad file</_filetypetooltip>
     </output>
     <script>
-        <command reldir="extensions" interpreter="python">scad-output.py</command>
+        <command reldir="extensions" interpreter="python">scad_output.py</command>
     </script>
 </inkscape-extension>

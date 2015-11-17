@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
     <_name>Restore</_name>
-    <id>org.ekips.filter.scad-restore</id>
+    <id>org.ekips.filter.scad_restore</id>
     <dependency type="executable" location="extensions">inkex.py</dependency>
     <param name="restore" type="string" _gui-text="Scad parameters filename">parameters.scd.json</param>
     <effect needs-live-preview="false">
@@ -11,6 +11,6 @@
         </effects-menu>
     </effect>
     <script>
-        <command reldir="extensions" interpreter="python">scad-restore.py</command>
+        <command reldir="extensions" interpreter="python">scad_restore.py</command>
     </script>
 </inkscape-extension>
